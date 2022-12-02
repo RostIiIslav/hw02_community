@@ -3,24 +3,11 @@
       <li>
         Автор: {{ post.author.get_full_name }}
       </li>
-      {% if profile_url_add is True %}
-        <a href="{% url 'posts:profile' post.author.username %}">все посты пользователя</a>
-      {% endif %}
       <li>
         Дата публикации: {{ post.pub_date|date:"d E Y" }}
       </li>
     </ul>
-    <p>{{ post.text }}</p>
-    {% if post_detail_url_add is True %}   
-      <a href="{% url 'posts:post_detail' post.id %}">подробная информация </a>
-    {% endif %}
-    {% if group_post_url_add is True and post.group %}   
+    <p>{{ post.text }}</p> 
       <br><a href="{% url 'posts:group_list' post.group.slug %}">все записи группы</a>
-    {% endif %}
-    {% if user.username == post.author %}
-    <a class="btn btn-primary" href="{% url 'posts:post_create' with is_edit=True %}">
-      редактировать запись
-    </a> 
-    {% endif %}   
   </article>
   {% if not forloop.last %}<hr>{% endif %} 
