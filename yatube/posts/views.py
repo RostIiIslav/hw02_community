@@ -20,7 +20,6 @@ def group_posts(request, slug):
     posts = group.posts.all()[:POSTS_PER_PAGE]
     context = {
         'posts': posts,
-        'group': group,
-        'is_edit': True,
+        'group': group
     }
     return render(request, template, context)

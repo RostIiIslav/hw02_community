@@ -9,7 +9,7 @@
   </ul>
   <p>{{ post.text }}</p> 
     {% if post.group %}
-    {% if is_edit %}
+    {% if show_group %}
       <br><a href="{% url 'posts:group_list' post.group.slug %}">все записи группы</a>
     {% endif %}
     {% endif %}
